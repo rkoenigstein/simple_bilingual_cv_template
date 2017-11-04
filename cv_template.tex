@@ -1,0 +1,139 @@
+\documentclass[a4paper, 13pt]{extarticle}
+
+%% unicode utf-8 encoding
+\usepackage[utf8]{inputenc}
+
+%% 8bit font encoding (256 glyphs)
+\usepackage[T1]{fontenc}
+
+%% set Roboto as font
+\usepackage[sfdefault, light, medium]{roboto}
+
+%% set language -> the last named language becomes the document's language
+\usepackage[ngerman, english]{babel}
+
+%% define page geometry
+\usepackage{geometry}
+\geometry{lmargin=0.8in, rmargin=0.8in, tmargin=0.8in, bmargin=0.8in}
+
+%% add image
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{tikzpagenodes}
+
+%% custom indentation
+\newcommand{\firsttabbing}{3em}
+\newcommand{\secondtabbing}{5em}
+\usepackage{tabularx}
+\usepackage{listliketab}
+
+%% styling of section titles
+\usepackage{titlesec}
+%% command shape format label sep
+\titleformat{\section}[display]{\normalfont\large}{\thesection}{0.5em}{}[]
+
+%% line spacing
+\usepackage{setspace}
+\setstretch{1.5}
+
+%% placeholder values -> place your personal detail here
+\newcommand{\mycv}{\noindent\normalfont
+  \underline{\iflanguage{english}{Curriculum Vitae}{Lebenslauf \hspace{1cm}} \hspace{8cm}}}
+\newcommand{\myname}{\noindent Max Mustermann}
+\newcommand{\city}{88888 Neustadt}
+\newcommand{\street}{\iflanguage{english}{10,~Baker Street}{Bäckerstraße 10}}
+\newcommand{\mail}{musterknabe@mustermail.de}
+\newcommand{\nationality}{\iflanguage{english}{German}{Deutsch}}
+\newcommand{\born}{\iflanguage{english}{dd Month yyyy}{dd.mm.yyyy, Musterstadt}}
+\newcommand{\mobile}{\textit{\iflanguage{english}{add mobile phone number here}{hier Handy Nummber hinzufügen}}}
+\newcommand{\portraitname}{me_in_nice.png}
+
+\begin{document}
+
+\begin{tikzpicture}[overlay, remember picture]
+  \node[anchor=north east, inner sep=0pt, yshift=-0.4cm] at (current page text area.north east)
+     {\includegraphics[width=3.5cm, height=4.5cm]{\portraitname}};
+\end{tikzpicture}
+
+\begingroup\LARGE
+  \setstretch{0.5}
+  \mycv
+  \setstretch{1.7}
+\endgroup
+
+\begingroup\Large
+  \bigskip
+  \myname
+\endgroup
+
+\section*{\iflanguage{english}{Personal Details}{Angaben zur Person}}
+\label{sec:personal_detail}
+
+\begin{listliketab}
+  \begin{tabularx}{\linewidth}{@{\hspace{\firsttabbing}}>{\hsize=.5\hsize}X@{\hspace{\secondtabbing}}>{\hsize=1.5\hsize}X}%{@{\hspace{\firsttabbing}} l @{\hspace{\secondtabbing}} XR}
+    Name: & \myname \\
+    \iflanguage{english}{Address: }{Anschrift: } & \street \\
+    & \city \\
+    \iflanguage{english}{Mobile phone number: }{Handy-Nr.: } & \mobile \\
+    E-Mail: & \mail \\
+    \iflanguage{english}{Born: }{Geboren: } & \born \\
+    \iflanguage{english}{Nationality: }{Nationalität: } & \nationality
+  \end{tabularx}
+\end{listliketab}
+
+\section*{\iflanguage{english}{Education}{Ausbildung}}
+\label{sec:education}
+
+\begin{listliketab}
+  \begin{tabularx}{\linewidth}{@{\hspace{\firsttabbing}}>{\hsize=.5\hsize}X@{\hspace{\secondtabbing}}>{\hsize=1.5\hsize}X}
+    2000-2007 & \iflanguage{english}{Studies of Biodiverse Oysterstudies (University of the Great Oyster, Austercity)}{Studium der Biodiversen Austerstudien (Universität der großen Austern, Austercity)} \\
+    2010 & \iflanguage{english}{Qualification Workshop for being an Oyster Expert}{Qualifizierung zum Austernexperten} \\
+    2015 & \iflanguage{english}{Norther Lights Explorer Course (2 weeks)}{Polarlicht Explorationskurs (2 Wochen)} \\
+    2017 & \iflanguage{english}{Apprenticeship for great happiness}{Ausbildung zu großartiger Glückseeligkeit}
+  \end{tabularx}
+\end{listliketab}
+
+\section*{\iflanguage{english}{Work Experience}{Berufserfahrung}}
+\label{sec:work_experience}
+
+\begin{listliketab}
+  \begin{tabularx}{\linewidth}{@{\hspace{\firsttabbing}}>{\hsize=.5\hsize}X@{\hspace{\secondtabbing}}>{\hsize=1.5\hsize}X}
+    2000-2007 & \iflanguage{english}{University clown for special needs}{Universitätsclown für besondere Bedürfnisse)} \\
+    2010 & \iflanguage{english}{Holidayjob for Oystercatching (6 weeks)}{Ferienjob als Austernfänger (6 Wochen)} \\
+    2015 & \iflanguage{english}{Polar light expert (3 month)}{Polarlichtexperte (3 Monate)} \\
+    2016 & \iflanguage{english}{Caretaker at the \textit{Great LaTex Company}}{Hausmeister bei der \textit{Großartigen LaTex Firma}} \\
+    2017 & \iflanguage{english}{LaTex nurse for greater CV's}{LaTex Krankenpfleger für tollere Lebensläufe}
+  \end{tabularx}
+\end{listliketab}
+
+\section*{\iflanguage{english}{Scholarships}{Stipendien}}
+\label{sec:scholarships}
+
+\begin{listliketab}
+  \begin{tabularx}{\linewidth}{@{\hspace{\firsttabbing}}>{\hsize=.5\hsize}X@{\hspace{\secondtabbing}}>{\hsize=1.5\hsize}X}
+    2023-2027 & \iflanguage{english}{Scholarship for happy polar lights by the \textit{Polarhappy Institute for applied happines}}{Stipendium der glücklichen Polarlichter des \textit{Polarhappy Institutes für angewandte Glückseeligkeit}} \\
+    2024 & \iflanguage{english}{Scholarship of happiness}{Stipendium der Glücklichkeit}
+  \end{tabularx}
+\end{listliketab}
+
+\section*{\iflanguage{english}{Voluntary Activities}{Ehrenamtliche Tätigkeiten}}
+\label{sec:voluntary_activities}
+
+\begin{listliketab}
+  \begin{tabularx}{\linewidth}{@{\hspace{\firsttabbing}}>{\hsize=.5\hsize}X@{\hspace{\secondtabbing}}>{\hsize=1.5\hsize}X}
+    2009 & \iflanguage{english}{Voluntary polar lights watcher}{Freiwilliger Polarlichtbeobachter} \\
+    2010 & \iflanguage{english}{Feeding of Puffins for the \textit{Puffin Feeding Institute of Feeded Puffins}}{Füttern von Papageientauchern für das \textit{Papageientaucher Fütterungsinstitut gefütterter Papageientaucher}}
+  \end{tabularx}
+\end{listliketab}
+
+\section*{\iflanguage{english}{Personal Interest}{Persönliche Interessen}}
+\label{sec:personal_interest}
+\begin{listliketab}
+  \begin{tabularx}{\linewidth}{@{\hspace{\firsttabbing}}>{\hsize=.5\hsize}X@{\hspace{\secondtabbing}}>{\hsize=1.5\hsize}X}
+    2000-2007 & \iflanguage{english}{Fishing (Fishing club AAC Musterstadt)}{Angeln (Angelclub AAC Musterstadt)} \\
+     & \iflanguage{english}{Reading fabulous books}{Lesen fabelhafter Bücher} \\
+     & \iflanguage{english}{Watching puffins}{Papageientaucherbeobachtung}
+  \end{tabularx}
+\end{listliketab}
+
+\end{document}
